@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bitácora de Campo - Práctica Educativa UCR</title>
-  
+
   <!-- Google Fonts: Fraunces, Work Sans, Space Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <style>
     /* ==========================================================================
@@ -33,14 +36,16 @@
       --sombrilla-fuerte: 0 10px 30px rgba(22, 36, 28, 0.15);
       --sombrilla-suave: 0 2px 10px rgba(36, 31, 22, 0.05);
       --borde-cuaderno: 1px solid rgba(36, 31, 22, 0.12);
-      
+
       /* Transiciones */
       --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       --transition-fast: all 0.2s ease;
     }
 
     /* Reset */
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -60,12 +65,19 @@
     }
 
     /* Tipografías Especiales */
-    h1, h2, h3, h4, .font-serif {
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-serif {
       font-family: 'Fraunces', serif;
       font-weight: 700;
     }
 
-    .font-mono, .sello-texto, .tag, .num-folio {
+    .font-mono,
+    .sello-texto,
+    .tag,
+    .num-folio {
       font-family: 'Space Mono', monospace;
     }
 
@@ -89,7 +101,7 @@
       position: relative;
       background-color: var(--papel-claro);
       /* Textura sutil de grano usando gradientes cruzados */
-      background-image: 
+      background-image:
         radial-gradient(var(--papel-warm) 0.5px, transparent 0.5px),
         radial-gradient(var(--papel-warm) 0.5px, var(--papel-claro) 0.5px);
       background-size: 4px 4px;
@@ -99,9 +111,9 @@
     .textura-papel-warm {
       position: relative;
       background-color: var(--papel-warm);
-      background-image: 
-        radial-gradient(rgba(36,31,22,0.03) 0.5px, transparent 0.5px),
-        radial-gradient(rgba(36,31,22,0.03) 0.5px, var(--papel-warm) 0.5px);
+      background-image:
+        radial-gradient(rgba(36, 31, 22, 0.03) 0.5px, transparent 0.5px),
+        radial-gradient(rgba(36, 31, 22, 0.03) 0.5px, var(--papel-warm) 0.5px);
       background-size: 6px 6px;
       background-position: 0 0, 3px 3px;
     }
@@ -118,7 +130,7 @@
     .margen-libreta {
       position: relative;
     }
-    
+
     .margen-libreta::before {
       content: '';
       position: absolute;
@@ -164,10 +176,11 @@
       cursor: pointer;
       box-shadow: -4px 3px 8px rgba(22, 36, 28, 0.25);
       transition: var(--transition-smooth);
-      
+
       /* Corte diagonal de pestaña de cuaderno */
       clip-path: polygon(100% 0, 15% 10%, 0 25%, 0 75%, 15% 90%, 100% 100%);
-      transform: translateX(24px); /* Semi-ocultas por defecto */
+      transform: translateX(24px);
+      /* Semi-ocultas por defecto */
     }
 
     .pestana-texto {
@@ -197,13 +210,33 @@
     }
 
     /* Colores específicos de pestañas */
-    .pestana-portada { --color-tab: #1E3327; }
-    .pestana-contexto { --color-tab: #2F6E62; }
-    .pestana-diagnostico { --color-tab: #A64B3C; }
-    .pestana-semanas { --color-tab: #C68B22; }
-    .pestana-instrumentos { --color-tab: #4C8B7B; }
-    .pestana-conclusiones { --color-tab: #241F16; }
-    .pestana-recomendaciones { --color-tab: #1E3327; }
+    .pestana-portada {
+      --color-tab: #1E3327;
+    }
+
+    .pestana-contexto {
+      --color-tab: #2F6E62;
+    }
+
+    .pestana-diagnostico {
+      --color-tab: #A64B3C;
+    }
+
+    .pestana-semanas {
+      --color-tab: #C68B22;
+    }
+
+    .pestana-instrumentos {
+      --color-tab: #4C8B7B;
+    }
+
+    .pestana-conclusiones {
+      --color-tab: #241F16;
+    }
+
+    .pestana-recomendaciones {
+      --color-tab: #1E3327;
+    }
 
     /* ==========================================================================
        ESPIRAL LATERAL DEL CUADERNO (Notebook Spine)
@@ -224,13 +257,15 @@
     /* Contenido general de páginas del cuaderno */
     .hoja-cuaderno {
       position: relative;
-      padding-left: 80px; /* Margen para el espiral */
-      padding-right: 60px; /* Margen para las pestañas */
+      padding-left: 80px;
+      /* Margen para el espiral */
+      padding-right: 60px;
+      /* Margen para las pestañas */
       padding-top: 80px;
       padding-bottom: 80px;
       min-height: 100vh;
       border-bottom: 2px solid rgba(36, 31, 22, 0.1);
-      box-shadow: inset 0 20px 20px -20px rgba(0,0,0,0.05);
+      box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.05);
     }
 
     /* ==========================================================================
@@ -247,9 +282,17 @@
       transform: translateY(0);
     }
 
-    .delay-1 { transition-delay: 0.15s; }
-    .delay-2 { transition-delay: 0.3s; }
-    .delay-3 { transition-delay: 0.45s; }
+    .delay-1 {
+      transition-delay: 0.15s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.3s;
+    }
+
+    .delay-3 {
+      transition-delay: 0.45s;
+    }
 
     /* ==========================================================================
        1. SECCIÓN PORTADA
@@ -332,7 +375,7 @@
       margin-bottom: 10px;
       transition: var(--transition-smooth);
     }
-    
+
     .sello-academico:hover {
       transform: scale(1.08) rotate(15deg);
     }
@@ -431,7 +474,7 @@
       opacity: 0.85;
       transition: var(--transition-smooth);
     }
-    
+
     .guanacaste-ilustration:hover {
       opacity: 1;
       transform: translateY(-5px);
@@ -469,9 +512,22 @@
     }
 
     @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-8px); }
-      60% { transform: translateY(-4px); }
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-8px);
+      }
+
+      60% {
+        transform: translateY(-4px);
+      }
     }
 
     /* ==========================================================================
@@ -572,7 +628,8 @@
       min-width: 800px;
     }
 
-    .tabla-horario th, .tabla-horario td {
+    .tabla-horario th,
+    .tabla-horario td {
       padding: 12px 16px;
       border-bottom: 1px solid rgba(36, 31, 22, 0.08);
       border-right: 1px solid rgba(36, 31, 22, 0.05);
@@ -615,21 +672,66 @@
       font-weight: 600;
       font-size: 0.75rem;
       letter-spacing: 0.3px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
 
-    .m-esp { background-color: rgba(166, 75, 60, 0.12); color: var(--arcilla); border-left: 3px solid var(--arcilla); }
-    .m-mat { background-color: rgba(228, 166, 43, 0.15); color: var(--dorado-oscuro); border-left: 3px solid var(--dorado-sabana); }
-    .m-cie { background-color: rgba(47, 110, 98, 0.12); color: var(--teal); border-left: 3px solid var(--teal); }
-    .m-soc { background-color: rgba(198, 139, 34, 0.12); color: var(--dorado-oscuro); border-left: 3px solid var(--dorado-oscuro); }
-    
-    .m-esp.highlighted { background-color: var(--arcilla); color: white; }
-    .m-mat.highlighted { background-color: var(--dorado-sabana); color: var(--tinta-oscura); }
-    .m-cie.highlighted { background-color: var(--teal); color: white; }
-    .m-soc.highlighted { background-color: var(--dorado-oscuro); color: white; }
+    .m-esp {
+      background-color: rgba(166, 75, 60, 0.12);
+      color: var(--arcilla);
+      border-left: 3px solid var(--arcilla);
+    }
 
-    .m-ext { background-color: rgba(74, 66, 50, 0.08); color: var(--tinta-suave); border-left: 3px solid var(--tinta-suave); }
-    .m-rec { background-color: rgba(241, 233, 210, 0.6); color: var(--tinta-suave); font-style: italic; text-align: center; letter-spacing: 2px; }
+    .m-mat {
+      background-color: rgba(228, 166, 43, 0.15);
+      color: var(--dorado-oscuro);
+      border-left: 3px solid var(--dorado-sabana);
+    }
+
+    .m-cie {
+      background-color: rgba(47, 110, 98, 0.12);
+      color: var(--teal);
+      border-left: 3px solid var(--teal);
+    }
+
+    .m-soc {
+      background-color: rgba(198, 139, 34, 0.12);
+      color: var(--dorado-oscuro);
+      border-left: 3px solid var(--dorado-oscuro);
+    }
+
+    .m-esp.highlighted {
+      background-color: var(--arcilla);
+      color: white;
+    }
+
+    .m-mat.highlighted {
+      background-color: var(--dorado-sabana);
+      color: var(--tinta-oscura);
+    }
+
+    .m-cie.highlighted {
+      background-color: var(--teal);
+      color: white;
+    }
+
+    .m-soc.highlighted {
+      background-color: var(--dorado-oscuro);
+      color: white;
+    }
+
+    .m-ext {
+      background-color: rgba(74, 66, 50, 0.08);
+      color: var(--tinta-suave);
+      border-left: 3px solid var(--tinta-suave);
+    }
+
+    .m-rec {
+      background-color: rgba(241, 233, 210, 0.6);
+      color: var(--tinta-suave);
+      font-style: italic;
+      text-align: center;
+      letter-spacing: 2px;
+    }
 
     /* ==========================================================================
        3. SECCIÓN DIAGNÓSTICO
@@ -668,7 +770,8 @@
       overflow: hidden;
     }
 
-    .tabla-comparativa th, .tabla-comparativa td {
+    .tabla-comparativa th,
+    .tabla-comparativa td {
       padding: 16px 20px;
       border-bottom: 1px solid rgba(241, 233, 210, 0.1);
       vertical-align: top;
@@ -728,7 +831,7 @@
       color: var(--papel-claro);
       padding: 25px;
       border-radius: 2px;
-      box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3), inset -3px -3px 10px rgba(0,0,0,0.15);
+      box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3), inset -3px -3px 10px rgba(0, 0, 0, 0.15);
       position: relative;
       transform: rotate(1deg);
       transition: var(--transition-smooth);
@@ -776,7 +879,7 @@
       margin-right: 12px;
       margin-top: 4px;
       color: var(--papel-claro);
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     }
 
     .postit-texto {
@@ -821,7 +924,7 @@
       transition: var(--transition-smooth);
       position: relative;
       top: 2px;
-      box-shadow: 0 -3px 6px rgba(0,0,0,0.03);
+      box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.03);
     }
 
     .tab-semana-btn span {
@@ -870,6 +973,7 @@
         opacity: 0;
         transform: translateY(15px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -910,10 +1014,21 @@
     }
 
     /* Clases de colores para las materias */
-    .tarjeta-mat { --materia-color: var(--dorado-sabana); }
-    .tarjeta-esp { --materia-color: var(--arcilla); }
-    .tarjeta-soc { --materia-color: var(--teal); }
-    .tarjeta-cie { --materia-color: var(--teal-claro); }
+    .tarjeta-mat {
+      --materia-color: var(--dorado-sabana);
+    }
+
+    .tarjeta-esp {
+      --materia-color: var(--arcilla);
+    }
+
+    .tarjeta-soc {
+      --materia-color: var(--teal);
+    }
+
+    .tarjeta-cie {
+      --materia-color: var(--teal-claro);
+    }
 
     .tarjeta-header-materia {
       display: flex;
@@ -1022,7 +1137,7 @@
       color: var(--tinta-oscura);
       padding: 40px;
       border-radius: 2px;
-      box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.4), inset -2px -2px 8px rgba(0,0,0,0.1);
+      box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.4), inset -2px -2px 8px rgba(0, 0, 0, 0.1);
       position: relative;
       border: 1px solid rgba(36, 31, 22, 0.1);
       transition: var(--transition-smooth);
@@ -1250,7 +1365,7 @@
       border: 1px solid rgba(241, 233, 210, 0.1);
       border-radius: 4px;
       padding: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       position: relative;
     }
 
@@ -1405,11 +1520,13 @@
        ========================================================================== */
     @media (max-width: 1024px) {
       .riel-pestanas {
-        display: none; /* Ocultar en tablets y móviles, reemplazado por nav flotante */
+        display: none;
+        /* Ocultar en tablets y móviles, reemplazado por nav flotante */
       }
-      
+
       .hoja-cuaderno {
-        padding-right: 40px; /* Recuperar espacio de pestañas */
+        padding-right: 40px;
+        /* Recuperar espacio de pestañas */
         padding-left: 60px;
       }
 
@@ -1432,11 +1549,13 @@
       }
 
       .espiral-notebook {
-        display: none; /* Quitar espiral en pantallas pequeñas */
+        display: none;
+        /* Quitar espiral en pantallas pequeñas */
       }
 
       .margen-libreta::before {
-        left: 15px; /* Ajustar margen */
+        left: 15px;
+        /* Ajustar margen */
       }
 
       .portada-titulo {
@@ -1503,7 +1622,7 @@
       border: 1px solid rgba(241, 233, 210, 0.15);
       border-radius: 30px;
       padding: 6px 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
       z-index: 999;
       width: 90%;
       max-width: 480px;
@@ -1542,6 +1661,7 @@
     }
   </style>
 </head>
+
 <body class="textura-papel-warm">
 
   <!-- ==========================================================================
@@ -1560,13 +1680,16 @@
     <a href="#semanas" class="pestana-notebook pestana-semanas" data-target="semanas" title="Las 4 Semanas">
       <span class="pestana-texto">Semanas</span>
     </a>
-    <a href="#instrumentos" class="pestana-notebook pestana-instrumentos" data-target="instrumentos" title="Instrumentos Clave">
+    <a href="#instrumentos" class="pestana-notebook pestana-instrumentos" data-target="instrumentos"
+      title="Instrumentos Clave">
       <span class="pestana-texto">Instrumentos</span>
     </a>
-    <a href="#conclusiones" class="pestana-notebook pestana-conclusiones" data-target="conclusiones" title="Cierre y Conclusiones">
+    <a href="#conclusiones" class="pestana-notebook pestana-conclusiones" data-target="conclusiones"
+      title="Cierre y Conclusiones">
       <span class="pestana-texto">Cierre</span>
     </a>
-    <a href="#recomendaciones" class="pestana-notebook pestana-recomendaciones" data-target="recomendaciones" title="Recomendaciones">
+    <a href="#recomendaciones" class="pestana-notebook pestana-recomendaciones" data-target="recomendaciones"
+      title="Recomendaciones">
       <span class="pestana-texto">Recomendaciones</span>
     </a>
   </nav>
@@ -1586,7 +1709,7 @@
 
   <!-- Contenedor General del Cuaderno -->
   <div class="cuaderno-container">
-    
+
     <!-- Espiral lateral del cuaderno (se repite verticalmente) -->
     <div class="espiral-notebook"></div>
 
@@ -1595,9 +1718,9 @@
          ========================================================================== */ -->
     <header id="portada" class="section">
       <div class="portada-bg-decor"></div>
-      
+
       <div class="portada-contenido">
-        
+
         <!-- Sello Académico Circular UCR -->
         <div class="sello-academico" aria-label="Sello Académico ED 0031 UCR 2026">
           <svg viewBox="0 0 100 100">
@@ -1610,32 +1733,43 @@
             <!-- Centro del sello: Siglas o escudo académico minimalista -->
             <circle cx="50" cy="50" r="26" stroke="var(--dorado-sabana)" stroke-width="1" />
             <circle cx="50" cy="50" r="22" stroke="var(--dorado-sabana)" stroke-dasharray="2,2" stroke-width="1" />
-            <text x="50" y="55" font-family="'Space Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle" fill="var(--dorado-sabana)">SG</text>
+            <text x="50" y="55" font-family="'Space Mono', monospace" font-size="12" font-weight="bold"
+              text-anchor="middle" fill="var(--dorado-sabana)">SG</text>
           </svg>
         </div>
 
         <span class="portada-sub-header font-mono">Informe Final de Práctica</span>
-        
+
         <h1 class="portada-titulo">
           Cuaderno de campo de una<br>maestra en formación
           <span>Bitácora digital y sistematización</span>
         </h1>
-        
+
         <p class="portada-subtitulo">
-          Sistematización de cuatro semanas de práctica docente en la sección 5-4 de la Escuela Ascensión Esquivel Ibarra, Liberia, Guanacaste.
+          Sistematización de cuatro semanas de práctica docente en la sección 5-4 de la Escuela Ascensión Esquivel
+          Ibarra, Liberia, Guanacaste.
         </p>
 
         <!-- Ilustración SVG del Árbol de Guanacaste -->
         <div class="guanacaste-ilustration">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="100%" height="100%">
             <!-- Tronco robusto y ramas expansivas -->
-            <path d="M 75 110 L 75 80 C 75 75, 70 70, 60 65 L 45 60 C 40 58, 42 54, 48 56 L 68 62 C 73 63, 76 60, 76 55 L 76 40 C 76 35, 70 30, 62 26 C 58 24, 60 20, 66 22 L 78 30 C 80 31, 82 31, 84 30 L 96 22 C 102 20, 104 24, 100 26 C 92 30, 86 35, 86 40 L 86 55 C 86 60, 89 63, 94 62 L 114 56 C 120 54, 122 58, 117 60 L 102 65 C 92 70, 87 75, 87 80 L 87 110 Z" fill="var(--dorado-oscuro)" />
+            <path
+              d="M 75 110 L 75 80 C 75 75, 70 70, 60 65 L 45 60 C 40 58, 42 54, 48 56 L 68 62 C 73 63, 76 60, 76 55 L 76 40 C 76 35, 70 30, 62 26 C 58 24, 60 20, 66 22 L 78 30 C 80 31, 82 31, 84 30 L 96 22 C 102 20, 104 24, 100 26 C 92 30, 86 35, 86 40 L 86 55 C 86 60, 89 63, 94 62 L 114 56 C 120 54, 122 58, 117 60 L 102 65 C 92 70, 87 75, 87 80 L 87 110 Z"
+              fill="var(--dorado-oscuro)" />
             <!-- Raíces de soporte en la base -->
-            <path d="M 68 110 C 73 108, 87 108, 92 110 C 95 111, 65 111, 68 110 Z" stroke="var(--dorado-oscuro)" stroke-width="3" stroke-linecap="round" />
+            <path d="M 68 110 C 73 108, 87 108, 92 110 C 95 111, 65 111, 68 110 Z" stroke="var(--dorado-oscuro)"
+              stroke-width="3" stroke-linecap="round" />
             <!-- Follaje expansivo superior en capas (forma del domo de Guanacaste) -->
-            <path d="M 25 50 C 15 35, 45 15, 80 15 C 115 15, 145 35, 135 50 C 125 60, 115 48, 80 48 C 45 48, 35 60, 25 50 Z" fill="var(--teal)" opacity="0.8" />
-            <path d="M 35 44 C 28 32, 52 20, 80 20 C 108 20, 132 32, 125 44 C 118 52, 105 40, 80 40 C 55 40, 42 52, 35 44 Z" fill="var(--teal-claro)" opacity="0.85" />
-            <path d="M 50 35 C 45 25, 62 12, 80 12 C 98 12, 115 25, 110 35 C 105 40, 95 32, 80 32 C 65 32, 55 40, 50 35 Z" fill="var(--dorado-sabana)" opacity="0.9" />
+            <path
+              d="M 25 50 C 15 35, 45 15, 80 15 C 115 15, 145 35, 135 50 C 125 60, 115 48, 80 48 C 45 48, 35 60, 25 50 Z"
+              fill="var(--teal)" opacity="0.8" />
+            <path
+              d="M 35 44 C 28 32, 52 20, 80 20 C 108 20, 132 32, 125 44 C 118 52, 105 40, 80 40 C 55 40, 42 52, 35 44 Z"
+              fill="var(--teal-claro)" opacity="0.85" />
+            <path
+              d="M 50 35 C 45 25, 62 12, 80 12 C 98 12, 115 25, 110 35 C 105 40, 95 32, 80 32 C 65 32, 55 40, 50 35 Z"
+              fill="var(--dorado-sabana)" opacity="0.9" />
           </svg>
         </div>
 
@@ -1677,14 +1811,19 @@
          ========================================================================== */ -->
     <section id="contexto" class="hoja-cuaderno textura-papel margen-libreta section">
       <div class="folio-container">
-        
-        <span class="num-folio" style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--tinta-suave);">FOLIO · 01</span>
-        
+
+        <span class="num-folio"
+          style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--tinta-suave);">FOLIO ·
+          01</span>
+
         <div class="reveal">
-          <span class="font-mono tag-materia" style="margin-bottom: 10px; display: inline-block;">Fase Diagnóstica</span>
+          <span class="font-mono tag-materia" style="margin-bottom: 10px; display: inline-block;">Fase
+            Diagnóstica</span>
           <h2 class="seccion-titulo">Contexto Educativo</h2>
           <p class="seccion-introduccion">
-            La práctica se desarrolló en la sección 5-4 de la **Escuela Ascensión Esquivel Ibarra**, ubicada en el distrito primero del cantón de Liberia, provincia de Guanacaste. Este centro educativo atiende a una población diversa y constituye un espacio clave de desarrollo pedagógico regional.
+            La práctica se desarrolló en la sección 5-4 de la Escuela Ascensión Esquivel Ibarra, ubicada en el distrito
+            primero del cantón de Liberia, provincia de Guanacaste. Este centro educativo atiende a una población
+            diversa y constituye un espacio clave de desarrollo pedagógico regional.
           </p>
         </div>
 
@@ -1695,19 +1834,19 @@
             <div class="label-clave">Sección Asignada</div>
             <div class="descr-clave">Quinto año de educación primaria básica en jornada ampliada.</div>
           </div>
-          
+
           <div class="tarjeta-info-clave">
             <div class="num-grande font-mono">21</div>
             <div class="label-clave">Estudiantes</div>
             <div class="descr-clave">Matrícula total activa que conforma el grupo de trabajo.</div>
           </div>
-          
+
           <div class="tarjeta-info-clave">
             <div class="num-grande font-mono">11/10</div>
             <div class="label-clave">Género</div>
             <div class="descr-clave">Distribución equitativa: 11 niños y 10 niñas en el aula.</div>
           </div>
-          
+
           <div class="tarjeta-info-clave">
             <div class="num-grande font-mono">10-11</div>
             <div class="label-clave">Rango de Edad</div>
@@ -1717,9 +1856,12 @@
 
         <!-- Horario Escolar -->
         <div class="reveal delay-2" style="margin-top: 50px;">
-          <h3 class="font-serif italic-serif" style="font-size: 1.4rem; color: var(--verde-bosque); margin-bottom: 15px;">Horario Semanal de la Sección (Jornada Ampliada)</h3>
+          <h3 class="font-serif italic-serif"
+            style="font-size: 1.4rem; color: var(--verde-bosque); margin-bottom: 15px;">Horario Semanal de la Sección
+            (Jornada Ampliada)</h3>
           <p style="font-size: 0.9rem; color: var(--tinta-suave); margin-bottom: 20px;">
-            El horario de la sección 5-4 refleja una organización de jornada ampliada, distribuyendo las materias académicas y especiales a lo largo de la semana lectiva:
+            El horario de la sección 5-4 refleja una organización de jornada ampliada, distribuyendo las materias
+            académicas y especiales a lo largo de la semana lectiva:
           </p>
 
           <div class="contenedor-tabla">
@@ -1854,19 +1996,25 @@
          ========================================================================== */ -->
     <section id="diagnostico" class="hoja-cuaderno section">
       <div class="folio-container">
-        
-        <span class="num-folio" style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--papel-warm); opacity: 0.6;">FOLIO · 02</span>
+
+        <span class="num-folio"
+          style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--papel-warm); opacity: 0.6;">FOLIO
+          · 02</span>
 
         <div class="reveal">
-          <span class="font-mono tag-materia" style="background-color: var(--dorado-sabana); color: var(--tinta-oscura); margin-bottom: 10px; display: inline-block;">Análisis de Entrada vs. Salida</span>
+          <span class="font-mono tag-materia"
+            style="background-color: var(--dorado-sabana); color: var(--tinta-oscura); margin-bottom: 10px; display: inline-block;">Análisis
+            de Entrada vs. Salida</span>
           <h2 class="seccion-titulo">Diagnóstico del Grupo</h2>
           <p class="seccion-introduccion">
-            El diagnóstico inicial permitió detectar áreas críticas en el rendimiento académico y en la dinámica de convivencia, estableciendo una línea base para diseñar las intervenciones y evaluar el impacto final del proceso.
+            El diagnóstico inicial permitió detectar áreas críticas en el rendimiento académico y en la dinámica de
+            convivencia, estableciendo una línea base para diseñar las intervenciones y evaluar el impacto final del
+            proceso.
           </p>
         </div>
 
         <div class="layout-diagnostico">
-          
+
           <!-- Tabla Comparativa -->
           <div class="reveal delay-1">
             <table class="tabla-comparativa">
@@ -1882,55 +2030,65 @@
                   <td class="col-aspecto">Nivel Académico</td>
                   <td>
                     <strong>Rezago Inicial</strong>
-                    <div class="desc-comparativa">5 estudiantes con dificultades importantes en lectura comprensiva y algoritmos de operaciones básicas en matemáticas.</div>
+                    <div class="desc-comparativa">5 estudiantes con dificultades importantes en lectura comprensiva y
+                      algoritmos de operaciones básicas en matemáticas.</div>
                   </td>
                   <td>
                     <strong>Progreso Significativo</strong>
-                    <div class="desc-comparativa">Reducción a solo 2 estudiantes con rezago persistente. Mejora sustancial en resolución de problemas matemáticos y fluidez lectora.</div>
+                    <div class="desc-comparativa">Reducción a solo 2 estudiantes con rezago persistente. Mejora
+                      sustancial en resolución de problemas matemáticos y fluidez lectora.</div>
                   </td>
                 </tr>
                 <tr>
                   <td class="col-aspecto">Estilos de Aprendizaje</td>
                   <td>
                     <strong>Sensorial y Kinestésico</strong>
-                    <div class="desc-comparativa">Fuerte necesidad de mediación con materiales concretos y dinámicas grupales; la lección magistral tradicional genera fatiga y dispersión.</div>
+                    <div class="desc-comparativa">Fuerte necesidad de mediación con materiales concretos y dinámicas
+                      grupales; la lección magistral tradicional genera fatiga y dispersión.</div>
                   </td>
                   <td>
                     <strong>Canales Optimizados</strong>
-                    <div class="desc-comparativa">Adaptación exitosa mediante talleres participativos, actividades con material recortable/manipulativo y dinámicas lúdicas estructuradas.</div>
+                    <div class="desc-comparativa">Adaptación exitosa mediante talleres participativos, actividades con
+                      material recortable/manipulativo y dinámicas lúdicas estructuradas.</div>
                   </td>
                 </tr>
                 <tr>
                   <td class="col-aspecto">Adecuación Curricular</td>
                   <td>
                     <strong>Apoyo No Significativo</strong>
-                    <div class="desc-comparativa">5 estudiantes identificado que requieren adecuaciones de acceso (tiempo extra, desglose de instrucciones escritos, simplificación de textos).</div>
+                    <div class="desc-comparativa">5 estudiantes identificado que requieren adecuaciones de acceso
+                      (tiempo extra, desglose de instrucciones escritos, simplificación de textos).</div>
                   </td>
                   <td>
                     <strong>Inclusión Efectiva</strong>
-                    <div class="desc-comparativa">Aplicación sistemática de apoyos en las guías de trabajo y evaluaciones. Los 5 estudiantes alcanzaron los objetivos propuestos del período.</div>
+                    <div class="desc-comparativa">Aplicación sistemática de apoyos en las guías de trabajo y
+                      evaluaciones. Los 5 estudiantes alcanzaron los objetivos propuestos del período.</div>
                   </td>
                 </tr>
                 <tr>
                   <td class="col-aspecto">Disciplina y Convivencia</td>
                   <td>
                     <strong>Falta de Rutinas</strong>
-                    <div class="desc-comparativa">Conversaciones paralelas recurrentes y dificultad para lograr atención focalizada al iniciar las lecciones o transiciones.</div>
+                    <div class="desc-comparativa">Conversaciones paralelas recurrentes y dificultad para lograr atención
+                      focalizada al iniciar las lecciones o transiciones.</div>
                   </td>
                   <td>
                     <strong>Rutinas Consolidadas</strong>
-                    <div class="desc-comparativa">Establecimiento de acuerdos de convivencia claros y palabras clave de atención. Aumento notable en la autorregulación del grupo.</div>
+                    <div class="desc-comparativa">Establecimiento de acuerdos de convivencia claros y palabras clave de
+                      atención. Aumento notable en la autorregulación del grupo.</div>
                   </td>
                 </tr>
                 <tr>
                   <td class="col-aspecto">Apoyo Familiar</td>
                   <td>
                     <strong>Supervisión Asincrónica</strong>
-                    <div class="desc-comparativa">Cumplimiento heterogéneo de tareas en el hogar; algunos alumnos no contaban con apoyo o revisión diaria de sus encargados.</div>
+                    <div class="desc-comparativa">Cumplimiento heterogéneo de tareas en el hogar; algunos alumnos no
+                      contaban con apoyo o revisión diaria de sus encargados.</div>
                   </td>
                   <td>
                     <strong>Vinculación Activa</strong>
-                    <div class="desc-comparativa">Mayor comunicación con los encargados a través del cuaderno de enlace escolar, logrando un mejor seguimiento y entrega de tareas asignadas.</div>
+                    <div class="desc-comparativa">Mayor comunicación con los encargados a través del cuaderno de enlace
+                      escolar, logrando un mejor seguimiento y entrega de tareas asignadas.</div>
                   </td>
                 </tr>
               </tbody>
@@ -1939,14 +2097,15 @@
 
           <!-- Notas marginales (Post-its) -->
           <div class="contenedor-postits reveal delay-2">
-            
+
             <div class="postit-digital">
               <div class="postit-pin"></div>
               <div class="postit-titulo">Indicador de Rezago</div>
               <div class="clearfix">
                 <div class="postit-num">5</div>
                 <div class="postit-texto">
-                  Estudiantes presentaban rezago significativo en materias básicas (Español/Mate) al inicio de la práctica.
+                  Estudiantes presentaban rezago significativo en materias básicas (Español/Mate) al inicio de la
+                  práctica.
                 </div>
               </div>
             </div>
@@ -1957,7 +2116,8 @@
               <div class="clearfix">
                 <div class="postit-num">2</div>
                 <div class="postit-texto">
-                  Casos críticos de rezago académico reportados al cierre, gracias al plan remedial e individualizado aplicado.
+                  Casos críticos de rezago académico reportados al cierre, gracias al plan remedial e individualizado
+                  aplicado.
                 </div>
               </div>
             </div>
@@ -1968,7 +2128,8 @@
               <div class="clearfix">
                 <div class="postit-num">5</div>
                 <div class="postit-texto">
-                  Estudiantes del grupo reciben adecuación curricular no significativa de forma permanente en sus asignaturas.
+                  Estudiantes del grupo reciben adecuación curricular no significativa de forma permanente en sus
+                  asignaturas.
                 </div>
               </div>
             </div>
@@ -1985,29 +2146,37 @@
          ========================================================================== */ -->
     <section id="semanas" class="hoja-cuaderno textura-papel margen-libreta section">
       <div class="folio-container">
-        
-        <span class="num-folio" style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--tinta-suave);">FOLIO · 03</span>
+
+        <span class="num-folio"
+          style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--tinta-suave);">FOLIO ·
+          03</span>
 
         <div class="reveal">
-          <span class="font-mono tag-materia" style="margin-bottom: 10px; display: inline-block;">Desarrollo Curricular</span>
+          <span class="font-mono tag-materia" style="margin-bottom: 10px; display: inline-block;">Desarrollo
+            Curricular</span>
           <h2 class="seccion-titulo">Sistematización Semanal</h2>
           <p class="seccion-introduccion">
-            Planificación e impartición de lecciones durante el bloque de cuatro semanas presenciales, abarcando las asignaturas troncales del plan de estudios de segundo ciclo de Costa Rica.
+            Planificación e impartición de lecciones durante el bloque de cuatro semanas presenciales, abarcando las
+            asignaturas troncales del plan de estudios de segundo ciclo de Costa Rica.
           </p>
         </div>
 
         <!-- Pestañas Horizontales para las Semanas -->
         <nav class="tabs-semanas-nav reveal delay-1" role="tablist" aria-label="Semanas de práctica">
-          <button class="tab-semana-btn active" role="tab" aria-selected="true" aria-controls="panel-semana-1" id="tab-semana-1">
+          <button class="tab-semana-btn active" role="tab" aria-selected="true" aria-controls="panel-semana-1"
+            id="tab-semana-1">
             <span>Fase Inicial</span>Semana 1
           </button>
-          <button class="tab-semana-btn" role="tab" aria-selected="false" aria-controls="panel-semana-2" id="tab-semana-2">
+          <button class="tab-semana-btn" role="tab" aria-selected="false" aria-controls="panel-semana-2"
+            id="tab-semana-2">
             <span>Fase Intermedia</span>Semana 2
           </button>
-          <button class="tab-semana-btn" role="tab" aria-selected="false" aria-controls="panel-semana-3" id="tab-semana-3">
+          <button class="tab-semana-btn" role="tab" aria-selected="false" aria-controls="panel-semana-3"
+            id="tab-semana-3">
             <span>Fase Evaluación</span>Semana 3
           </button>
-          <button class="tab-semana-btn" role="tab" aria-selected="false" aria-controls="panel-semana-4" id="tab-semana-4">
+          <button class="tab-semana-btn" role="tab" aria-selected="false" aria-controls="panel-semana-4"
+            id="tab-semana-4">
             <span>Fase Cierre</span>Semana 4
           </button>
         </nav>
@@ -2015,23 +2184,30 @@
         <!-- PANEL SEMANA 1 -->
         <div class="panel-semana active" id="panel-semana-1" role="tabpanel" aria-labelledby="tab-semana-1">
           <div style="margin-bottom: 25px;">
-            <p class="font-mono" style="font-size: 0.8rem; color: var(--arcilla); font-weight: 700;">CALENDARIO: 11 AL 14 DE MAYO</p>
-            <p style="font-size: 0.95rem; color: var(--tinta-suave);">Enfoque: Diagnóstico del ritmo del grupo y conceptualización básica de los contenidos iniciales.</p>
+            <p class="font-mono" style="font-size: 0.8rem; color: var(--arcilla); font-weight: 700;">CALENDARIO: 11 AL
+              14 DE MAYO</p>
+            <p style="font-size: 0.95rem; color: var(--tinta-suave);">Enfoque: Diagnóstico del ritmo del grupo y
+              conceptualización básica de los contenidos iniciales.</p>
           </div>
-          
+
           <div class="grid-materias">
             <!-- Matemática -->
             <div class="tarjeta-materia tarjeta-mat">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
                   <!-- SVG Icono Mate -->
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h16M4 15h16" /></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 9h16M4 15h16" />
+                  </svg>
                   Matemática
                 </h4>
                 <span class="tag-materia">Conceptos</span>
               </div>
               <div class="contenido-materia">
-                Estudio e identificación de <strong>fracciones propias</strong> (donde el numerador es estrictamente menor que el denominador) e <strong>fracciones impropias</strong> (numerador mayor o igual al denominador). Uso de material concreto y representaciones gráficas circulares en papel para el reconocimiento visual.
+                Estudio e identificación de <strong>fracciones propias</strong> (donde el numerador es estrictamente
+                menor que el denominador) e <strong>fracciones impropias</strong> (numerador mayor o igual al
+                denominador). Uso de material concreto y representaciones gráficas circulares en papel para el
+                reconocimiento visual.
               </div>
             </div>
 
@@ -2040,13 +2216,18 @@
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
                   <!-- SVG Icono Español -->
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z" /></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z" />
+                  </svg>
                   Español
                 </h4>
                 <span class="tag-materia">Gramática</span>
               </div>
               <div class="contenido-materia">
-                Identificación de <strong>adjetivos</strong> (calificativos y demostrativos) y <strong>artículos</strong> (definidos e indefinidos). Redacción de enunciados aplicando concordancia de género y número en ejercicios prácticos dentro del aula de clases.
+                Identificación de <strong>adjetivos</strong> (calificativos y demostrativos) y
+                <strong>artículos</strong> (definidos e indefinidos). Redacción de enunciados aplicando concordancia de
+                género y número en ejercicios prácticos dentro del aula de clases.
               </div>
             </div>
 
@@ -2055,13 +2236,18 @@
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
                   <!-- SVG Icono Sociales -->
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20" />
+                  </svg>
                   Estudios Sociales
                 </h4>
                 <span class="tag-materia">Historia</span>
               </div>
               <div class="contenido-materia">
-                Análisis de las características del <strong>pueblo indígena Ngäbe</strong>. Se profundizó en su ubicación geográfica e histórica en el Pacífico Sur de Costa Rica, organización comunitaria, preservación de su lengua y principales actividades socioeconómicas tradicionales.
+                Análisis de las características del <strong>pueblo indígena Ngäbe</strong>. Se profundizó en su
+                ubicación geográfica e histórica en el Pacífico Sur de Costa Rica, organización comunitaria,
+                preservación de su lengua y principales actividades socioeconómicas tradicionales.
               </div>
             </div>
 
@@ -2070,13 +2256,18 @@
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
                   <!-- SVG Icono Ciencias -->
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4.9V17L12 22l-9-5.1V6.9L12 2z"/><path d="M12 22V12m0 0L3 7m9 5l9-5"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l9 4.9V17L12 22l-9-5.1V6.9L12 2z" />
+                    <path d="M12 22V12m0 0L3 7m9 5l9-5" />
+                  </svg>
                   Ciencias
                 </h4>
                 <span class="tag-materia">Ecología</span>
               </div>
               <div class="contenido-materia">
-                Clasificación de las **relaciones ecológicas de interdependencia**. Estudio detallado de fenómenos como el <strong>mutualismo, parasitismo, depredación y comensalismo</strong> en ecosistemas costarricenses, ejemplificado mediante ilustraciones y análisis de casos biológicos reales.
+                Clasificación de las **relaciones ecológicas de interdependencia**. Estudio detallado de fenómenos como
+                el <strong>mutualismo, parasitismo, depredación y comensalismo</strong> en ecosistemas costarricenses,
+                ejemplificado mediante ilustraciones y análisis de casos biológicos reales.
               </div>
             </div>
           </div>
@@ -2085,8 +2276,10 @@
         <!-- PANEL SEMANA 2 -->
         <div class="panel-semana" id="panel-semana-2" role="tabpanel" aria-labelledby="tab-semana-2">
           <div style="margin-bottom: 25px;">
-            <p class="font-mono" style="font-size: 0.8rem; color: var(--arcilla); font-weight: 700;">CALENDARIO: 25 AL 28 DE MAYO</p>
-            <p style="font-size: 0.95rem; color: var(--tinta-suave);">Enfoque: Profundización de contenidos básicos e incorporación de operaciones complejas.</p>
+            <p class="font-mono" style="font-size: 0.8rem; color: var(--arcilla); font-weight: 700;">CALENDARIO: 25 AL
+              28 DE MAYO</p>
+            <p style="font-size: 0.95rem; color: var(--tinta-suave);">Enfoque: Profundización de contenidos básicos e
+              incorporación de operaciones complejas.</p>
           </div>
 
           <div class="grid-materias">
@@ -2094,13 +2287,17 @@
             <div class="tarjeta-materia tarjeta-mat">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h16M4 15h16" /></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 9h16M4 15h16" />
+                  </svg>
                   Matemática
                 </h4>
                 <span class="tag-materia">Operaciones</span>
               </div>
               <div class="contenido-materia">
-                Resolución y modelado de operaciones con <strong>fracciones homogéneas</strong> (mismo denominador) y <strong>fracciones heterogéneas</strong> (distinto denominador). Comparación analítica y gráfica de fracciones equivalentes por medio de tiras de fracciones manipulables.
+                Resolución y modelado de operaciones con <strong>fracciones homogéneas</strong> (mismo denominador) y
+                <strong>fracciones heterogéneas</strong> (distinto denominador). Comparación analítica y gráfica de
+                fracciones equivalentes por medio de tiras de fracciones manipulables.
               </div>
             </div>
 
@@ -2108,13 +2305,18 @@
             <div class="tarjeta-materia tarjeta-esp">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z" /></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z" />
+                  </svg>
                   Español
                 </h4>
                 <span class="tag-materia">Ortografía</span>
               </div>
               <div class="contenido-materia">
-                Normativas gramaticales sobre el **uso correcto de las letras mayúsculas** (nombres propios, al inicio de un texto y posterior al punto). Asimismo, se estudió el uso de **abreviaturas comunes** en contextos administrativos e institucionales de la cotidianidad.
+                Normativas gramaticales sobre el **uso correcto de las letras mayúsculas** (nombres propios, al inicio
+                de un texto y posterior al punto). Asimismo, se estudió el uso de **abreviaturas comunes** en contextos
+                administrativos e institucionales de la cotidianidad.
               </div>
             </div>
 
@@ -2122,13 +2324,18 @@
             <div class="tarjeta-materia tarjeta-soc">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20" />
+                  </svg>
                   Estudios Sociales
                 </h4>
                 <span class="tag-materia">Territorios</span>
               </div>
               <div class="contenido-materia">
-                Estudio de los **pueblos originarios en la actualidad**. Debate y reflexión grupal sobre la situación legal e histórica de los territorios indígenas del país, los procesos de preservación de su patrimonio cultural y las problemáticas socioeconómicas actuales.
+                Estudio de los **pueblos originarios en la actualidad**. Debate y reflexión grupal sobre la situación
+                legal e histórica de los territorios indígenas del país, los procesos de preservación de su patrimonio
+                cultural y las problemáticas socioeconómicas actuales.
               </div>
             </div>
 
@@ -2136,13 +2343,18 @@
             <div class="tarjeta-materia tarjeta-cie">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4.9V17L12 22l-9-5.1V6.9L12 2z"/><path d="M12 22V12m0 0L3 7m9 5l9-5"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l9 4.9V17L12 22l-9-5.1V6.9L12 2z" />
+                    <path d="M12 22V12m0 0L3 7m9 5l9-5" />
+                  </svg>
                   Ciencias
                 </h4>
                 <span class="tag-materia">Biología</span>
               </div>
               <div class="contenido-materia">
-                Comprensión integral de la <strong>fotosíntesis</strong> como mecanismo de transformación energética de las plantas (clorofila, absorción de luz, agua y CO2). Explicación de la **cadena alimenticia** identificando los roles de productores, consumidores y descomponedores.
+                Comprensión integral de la <strong>fotosíntesis</strong> como mecanismo de transformación energética de
+                las plantas (clorofila, absorción de luz, agua y CO2). Explicación de la **cadena alimenticia**
+                identificando los roles de productores, consumidores y descomponedores.
               </div>
             </div>
           </div>
@@ -2151,8 +2363,10 @@
         <!-- PANEL SEMANA 3 -->
         <div class="panel-semana" id="panel-semana-3" role="tabpanel" aria-labelledby="tab-semana-3">
           <div style="margin-bottom: 25px;">
-            <p class="font-mono" style="font-size: 0.8rem; color: var(--arcilla); font-weight: 700;">CALENDARIO: FASE DE REPASO GENERAL Y EVALUACIÓN FORMATIVA</p>
-            <p style="font-size: 0.95rem; color: var(--tinta-suave);">Enfoque: Reforzamiento cognitivo sistemático antes de aplicar los instrumentos evaluativos sumativos del período.</p>
+            <p class="font-mono" style="font-size: 0.8rem; color: var(--arcilla); font-weight: 700;">CALENDARIO: FASE DE
+              REPASO GENERAL Y EVALUACIÓN FORMATIVA</p>
+            <p style="font-size: 0.95rem; color: var(--tinta-suave);">Enfoque: Reforzamiento cognitivo sistemático antes
+              de aplicar los instrumentos evaluativos sumativos del período.</p>
           </div>
 
           <div class="grid-materias">
@@ -2160,13 +2374,17 @@
             <div class="tarjeta-materia tarjeta-mat">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h16M4 15h16" /></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 9h16M4 15h16" />
+                  </svg>
                   Matemática
                 </h4>
                 <span class="tag-materia">Repaso</span>
               </div>
               <div class="contenido-materia">
-                Taller lúdico de repaso utilizando **juegos de mesa y bingo de fracciones** (conceptos propios, impropios y operaciones con homogéneas y heterogéneas). Resolución guiada de problemas matemáticos contextualizados en el entorno rural costarricense.
+                Taller lúdico de repaso utilizando **juegos de mesa y bingo de fracciones** (conceptos propios,
+                impropios y operaciones con homogéneas y heterogéneas). Resolución guiada de problemas matemáticos
+                contextualizados en el entorno rural costarricense.
               </div>
             </div>
 
@@ -2174,13 +2392,18 @@
             <div class="tarjeta-materia tarjeta-esp">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z" /></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z" />
+                  </svg>
                   Español
                 </h4>
                 <span class="tag-materia">Escritura</span>
               </div>
               <div class="contenido-materia">
-                Sesiones prácticas de **redacción creativa** integrando la concordancia gramatical, el uso de adjetivos de forma descriptiva, y la correcta utilización de mayúsculas y abreviaturas en párrafos creados de manera autónoma por los discentes.
+                Sesiones prácticas de **redacción creativa** integrando la concordancia gramatical, el uso de adjetivos
+                de forma descriptiva, y la correcta utilización de mayúsculas y abreviaturas en párrafos creados de
+                manera autónoma por los discentes.
               </div>
             </div>
 
@@ -2188,13 +2411,18 @@
             <div class="tarjeta-materia tarjeta-soc">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20" />
+                  </svg>
                   Estudios Sociales
                 </h4>
                 <span class="tag-materia">Síntesis</span>
               </div>
               <div class="contenido-materia">
-                Construcción colectiva de un **mapa conceptual gigante** sobre las comunidades indígenas originarias de Costa Rica. Dinámica interactiva de emparejamiento de características culturales e históricas correspondientes a cada etnia nacional.
+                Construcción colectiva de un **mapa conceptual gigante** sobre las comunidades indígenas originarias de
+                Costa Rica. Dinámica interactiva de emparejamiento de características culturales e históricas
+                correspondientes a cada etnia nacional.
               </div>
             </div>
 
@@ -2202,13 +2430,18 @@
             <div class="tarjeta-materia tarjeta-cie">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4.9V17L12 22l-9-5.1V6.9L12 2z"/><path d="M12 22V12m0 0L3 7m9 5l9-5"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l9 4.9V17L12 22l-9-5.1V6.9L12 2z" />
+                    <path d="M12 22V12m0 0L3 7m9 5l9-5" />
+                  </svg>
                   Ciencias
                 </h4>
                 <span class="tag-materia">Integración</span>
               </div>
               <div class="contenido-materia">
-                Modelado en parejas de **cadenas tróficas** locales usando recortes de fauna de la zona de Liberia y Guanacaste. Repaso de conceptos de fotosíntesis e interdependencia mediante esquemas gráficos de síntesis en sus cuadernos de trabajo.
+                Modelado en parejas de **cadenas tróficas** locales usando recortes de fauna de la zona de Liberia y
+                Guanacaste. Repaso de conceptos de fotosíntesis e interdependencia mediante esquemas gráficos de
+                síntesis en sus cuadernos de trabajo.
               </div>
             </div>
           </div>
@@ -2217,8 +2450,10 @@
         <!-- PANEL SEMANA 4 -->
         <div class="panel-semana" id="panel-semana-4" role="tabpanel" aria-labelledby="tab-semana-4">
           <div style="margin-bottom: 25px;">
-            <p class="font-mono" style="font-size: 0.8rem; color: var(--arcilla); font-weight: 700;">CALENDARIO: SEMANA DE CIERRE Y METAS COMPLEMENTARIAS</p>
-            <p style="font-size: 0.95rem; color: var(--tinta-suave);">Enfoque: Cierre formal del proceso de práctica e introducción a contenidos decimales y sostenibilidad.</p>
+            <p class="font-mono" style="font-size: 0.8rem; color: var(--arcilla); font-weight: 700;">CALENDARIO: SEMANA
+              DE CIERRE Y METAS COMPLEMENTARIAS</p>
+            <p style="font-size: 0.95rem; color: var(--tinta-suave);">Enfoque: Cierre formal del proceso de práctica e
+              introducción a contenidos decimales y sostenibilidad.</p>
           </div>
 
           <div class="grid-materias">
@@ -2226,13 +2461,17 @@
             <div class="tarjeta-materia tarjeta-mat">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h16M4 15h16" /></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 9h16M4 15h16" />
+                  </svg>
                   Matemática
                 </h4>
                 <span class="tag-materia">Decimales</span>
               </div>
               <div class="contenido-materia">
-                Introducción conceptual de los <strong>números decimales</strong>. Desarrollo guiado sobre la lectura, escritura y el proceso matemático de **redondeo a la décima**, finalizando con la aplicación práctica en sumas y restas de decimales simples.
+                Introducción conceptual de los <strong>números decimales</strong>. Desarrollo guiado sobre la lectura,
+                escritura y el proceso matemático de **redondeo a la décima**, finalizando con la aplicación práctica en
+                sumas y restas de decimales simples.
               </div>
             </div>
 
@@ -2240,13 +2479,18 @@
             <div class="tarjeta-materia tarjeta-esp">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z" /></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z" />
+                  </svg>
                   Español
                 </h4>
                 <span class="tag-materia">Sintaxis</span>
               </div>
               <div class="contenido-materia">
-                Estudio sistemático de las <strong>conjunciones</strong> (copulativas, disyuntivas y adversativas) y **preposiciones** en el idioma español. Se analizó su papel fundamental como conectores de cohesión sintáctica en producciones textuales formales.
+                Estudio sistemático de las <strong>conjunciones</strong> (copulativas, disyuntivas y adversativas) y
+                **preposiciones** en el idioma español. Se analizó su papel fundamental como conectores de cohesión
+                sintáctica en producciones textuales formales.
               </div>
             </div>
 
@@ -2254,13 +2498,18 @@
             <div class="tarjeta-materia tarjeta-cie">
               <div class="tarjeta-header-materia">
                 <h4 class="titulo-materia">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4.9V17L12 22l-9-5.1V6.9L12 2z"/><path d="M12 22V12m0 0L3 7m9 5l9-5"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l9 4.9V17L12 22l-9-5.1V6.9L12 2z" />
+                    <path d="M12 22V12m0 0L3 7m9 5l9-5" />
+                  </svg>
                   Ciencias
                 </h4>
                 <span class="tag-materia">Recursos</span>
               </div>
               <div class="contenido-materia">
-                Reconocimiento de las fuentes de <strong>energía renovables</strong> (solar, eólica, hidroeléctrica, biomasa) y **no renovables** (combustibles fósiles). Discusión pedagógica en torno a la sostenibilidad y la importancia de la conservación del recurso energético del país.
+                Reconocimiento de las fuentes de <strong>energía renovables</strong> (solar, eólica, hidroeléctrica,
+                biomasa) y **no renovables** (combustibles fósiles). Discusión pedagógica en torno a la sostenibilidad y
+                la importancia de la conservación del recurso energético del país.
               </div>
             </div>
 
@@ -2269,7 +2518,9 @@
               <span class="anotacion-vacia-icono">✏️</span>
               <h5 class="anotacion-vacia-titulo font-mono">Nota de Campo · Folio 03-B</h5>
               <p class="anotacion-vacia-texto">
-                "No se impartieron lecciones presenciales correspondientes a Estudios Sociales durante esta semana debido a la ejecución de una actividad especial programada de vinculación y extensión universitaria de la Sede de Guanacaste de la UCR."
+                "No se impartieron lecciones presenciales correspondientes a Estudios Sociales durante esta semana
+                debido a la ejecución de una actividad especial programada de vinculación y extensión universitaria de
+                la Sede de Guanacaste de la UCR."
               </p>
             </div>
           </div>
@@ -2283,29 +2534,38 @@
          ========================================================================== */ -->
     <section id="instrumentos" class="hoja-cuaderno section">
       <div class="folio-container">
-        
-        <span class="num-folio" style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--papel-warm); opacity: 0.6;">FOLIO · 04</span>
+
+        <span class="num-folio"
+          style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--papel-warm); opacity: 0.6;">FOLIO
+          · 04</span>
 
         <div class="reveal">
-          <span class="font-mono tag-materia" style="background-color: var(--teal-claro); color: var(--tinta-oscura); margin-bottom: 10px; display: inline-block;">Metodología Evaluativa y Reflexiva</span>
+          <span class="font-mono tag-materia"
+            style="background-color: var(--teal-claro); color: var(--tinta-oscura); margin-bottom: 10px; display: inline-block;">Metodología
+            Evaluativa y Reflexiva</span>
           <h2 class="seccion-titulo">Instrumentos Clave</h2>
           <p class="seccion-introduccion">
-            El informe destaca dos pilares instrumentales fundamentales: uno enfocado en el desarrollo continuo de la autoevaluación docente y el otro en la medición procedimental y actitudinal de los discentes.
+            El informe destaca dos pilares instrumentales fundamentales: uno enfocado en el desarrollo continuo de la
+            autoevaluación docente y el otro en la medición procedimental y actitudinal de los discentes.
           </p>
         </div>
 
         <div class="layout-instrumentos">
-          
+
           <!-- Tarjeta 1: La Bitácora -->
           <div class="tarjeta-instrumento reveal delay-1">
             <span class="instrumento-tag">Evaluación Cualitativa / Formativa</span>
             <h3 class="instrumento-titulo">La Bitácora</h3>
             <p class="instrumento-cuerpo">
-              Consistió en el registro continuo y analítico de las observaciones diarias en el aula. Funcionó como el corazón metodológico de la sistematización, posibilitando una evaluación en caliente del planeamiento didáctico frente a la realidad cambiante del aula. Permitió ajustar tiempos, redefinir mediaciones con material concreto y replantear estrategias de disciplina de forma ágil y flexible.
+              Consistió en el registro continuo y analítico de las observaciones diarias en el aula. Funcionó como el
+              corazón metodológico de la sistematización, posibilitando una evaluación en caliente del planeamiento
+              didáctico frente a la realidad cambiante del aula. Permitió ajustar tiempos, redefinir mediaciones con
+              material concreto y replantear estrategias de disciplina de forma ágil y flexible.
             </p>
             <div class="instrumento-cita">
               <p class="cita-texto">
-                "La bitácora de campo propicia un diálogo interno constante que transforma la experiencia vivida en aprendizaje profesional consciente, alejando al docente de la mera repetición instrumental."
+                "La bitácora de campo propicia un diálogo interno constante que transforma la experiencia vivida en
+                aprendizaje profesional consciente, alejando al docente de la mera repetición instrumental."
               </p>
               <span class="cita-autor">— Adaptado de Naranjo (s.f.)</span>
             </div>
@@ -2316,11 +2576,15 @@
             <span class="instrumento-tag">Evaluación Sumativa / Diagnóstica</span>
             <h3 class="instrumento-titulo">La Lista de Cotejo</h3>
             <p class="instrumento-cuerpo">
-              Instrumento dicotómico estructurado sobre escalas de valoración de presencia/ausencia (sí/no). Resultó de gran efectividad práctica para medir avances procedimentales rigurosos (por ejemplo, el trazo gráfico o la clasificación correcta de fracciones) y conductas de trabajo grupal. No obstante, se constataron sus naturales limitaciones metodológicas para evaluar procesos de desarrollo cognitivo más amplios.
+              Instrumento dicotómico estructurado sobre escalas de valoración de presencia/ausencia (sí/no). Resultó de
+              gran efectividad práctica para medir avances procedimentales rigurosos (por ejemplo, el trazo gráfico o la
+              clasificación correcta de fracciones) y conductas de trabajo grupal. No obstante, se constataron sus
+              naturales limitaciones metodológicas para evaluar procesos de desarrollo cognitivo más amplios.
             </p>
             <div class="instrumento-cita">
               <p class="cita-texto">
-                "Los instrumentos de carácter dicotómico simplifican la recolección de datos pero deben acompañarse con rúbricas de desempeño para valorar competencias complejas."
+                "Los instrumentos de carácter dicotómico simplifican la recolección de datos pero deben acompañarse con
+                rúbricas de desempeño para valorar competencias complejas."
               </p>
               <span class="cita-autor">— Adaptado de Baca et al. (s.f.)</span>
             </div>
@@ -2336,14 +2600,18 @@
          ========================================================================== */ -->
     <section id="conclusiones" class="hoja-cuaderno textura-papel margen-libreta section">
       <div class="folio-container">
-        
-        <span class="num-folio" style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--tinta-suave);">FOLIO · 05</span>
+
+        <span class="num-folio"
+          style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--tinta-suave);">FOLIO ·
+          05</span>
 
         <div class="reveal">
-          <span class="font-mono tag-materia" style="margin-bottom: 10px; display: inline-block;">Resultados Consolidados</span>
+          <span class="font-mono tag-materia" style="margin-bottom: 10px; display: inline-block;">Resultados
+            Consolidados</span>
           <h2 class="seccion-titulo">Cierre y Conclusiones</h2>
           <p class="seccion-introduccion">
-            La sistematización del período lectivo demuestra avances sustanciales tanto a nivel del rendimiento estudiantil como en la consolidación del marco metodológico propuesto.
+            La sistematización del período lectivo demuestra avances sustanciales tanto a nivel del rendimiento
+            estudiantil como en la consolidación del marco metodológico propuesto.
           </p>
         </div>
 
@@ -2371,7 +2639,8 @@
         <div class="reveal delay-2" style="margin-top: 20px;">
           <div class="quote-reflexion">
             <p class="quote-texto">
-              "La enseñanza efectiva surge de la combinación entre la planificación cuidadosa, la flexibilidad ante lo inesperado y el compromiso genuino con el desarrollo integral de cada niño y niña."
+              "La enseñanza efectiva surge de la combinación entre la planificación cuidadosa, la flexibilidad ante lo
+              inesperado y el compromiso genuino con el desarrollo integral de cada niño y niña."
             </p>
             <span class="quote-autor">Reflexión Final del Diario de Campo</span>
           </div>
@@ -2385,31 +2654,42 @@
          ========================================================================== */ -->
     <section id="recomendaciones" class="hoja-cuaderno section">
       <div class="folio-container">
-        
-        <span class="num-folio" style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--papel-warm); opacity: 0.6;">FOLIO · 06</span>
+
+        <span class="num-folio"
+          style="position: absolute; top: 30px; right: 40px; font-size: 0.75rem; color: var(--papel-warm); opacity: 0.6;">FOLIO
+          · 06</span>
 
         <div class="reveal">
-          <span class="font-mono tag-materia" style="background-color: var(--arcilla); color: var(--papel-claro); margin-bottom: 10px; display: inline-block;">Acciones de Mejora Futura</span>
+          <span class="font-mono tag-materia"
+            style="background-color: var(--arcilla); color: var(--papel-claro); margin-bottom: 10px; display: inline-block;">Acciones
+            de Mejora Futura</span>
           <h2 class="seccion-titulo">Propuestas y Recomendaciones</h2>
           <p class="seccion-introduccion">
-            Propuesta de directrices y acciones concretas formuladas a partir de la experiencia empírica de la práctica, dirigidas a potenciar la calidad educativa del aula en futuros ciclos lectivos.
+            Propuesta de directrices y acciones concretas formuladas a partir de la experiencia empírica de la práctica,
+            dirigidas a potenciar la calidad educativa del aula en futuros ciclos lectivos.
           </p>
         </div>
 
         <div class="grid-recomendaciones reveal delay-1">
-          
+
           <!-- Recomendación 1: Institución -->
           <div class="col-pizarra">
             <div class="pizarra-header">
               <span class="pizarra-header-icono">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+                </svg>
               </span>
               <h3 class="pizarra-header-titulo">A la Institución</h3>
             </div>
             <ul class="checklist-libreta">
-              <li>Propiciar espacios sistemáticos de codocencia y articulación interdisciplinar entre los docentes de grado y materias especiales.</li>
-              <li>Fortalecer e implementar recursos tecnológicos en las aulas para robustecer las mediaciones en alumnos con adecuaciones curriculares.</li>
-              <li>Apoyar la creación de proyectos institucionales de nivelación académica en materias fundamentales.</li>
+              <li>Propiciar espacios sistemáticos de codocencia y articulación interdisciplinar entre los docentes de
+                grado y materias especiales.</li>
+              <li>Fortalecer e implementar recursos tecnológicos en las aulas para robustecer las mediaciones en alumnos
+                con adecuaciones curriculares.</li>
+              <li>Apoyar la creación de proyectos institucionales de nivelación académica en materias fundamentales.
+              </li>
             </ul>
           </div>
 
@@ -2417,14 +2697,22 @@
           <div class="col-pizarra">
             <div class="pizarra-header">
               <span class="pizarra-header-icono">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
               </span>
               <h3 class="pizarra-header-titulo">A las Familias</h3>
             </div>
             <ul class="checklist-libreta">
-              <li>Establecer canales diarios de comunicación con los docentes mediante el uso activo del cuaderno de enlace o bitácora de control escolar.</li>
-              <li>Diseñar rutinas y espacios fijos de estudio diario en el hogar para afianzar los conceptos matemáticos y la comprensión de textos.</li>
-              <li>Acompañar y supervisar de forma activa el cumplimiento de los deberes extraclase asignados en el centro escolar.</li>
+              <li>Establecer canales diarios de comunicación con los docentes mediante el uso activo del cuaderno de
+                enlace o bitácora de control escolar.</li>
+              <li>Diseñar rutinas y espacios fijos de estudio diario en el hogar para afianzar los conceptos matemáticos
+                y la comprensión de textos.</li>
+              <li>Acompañar y supervisar de forma activa el cumplimiento de los deberes extraclase asignados en el
+                centro escolar.</li>
             </ul>
           </div>
 
@@ -2432,14 +2720,20 @@
           <div class="col-pizarra">
             <div class="pizarra-header">
               <span class="pizarra-header-icono">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 20h9" />
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                </svg>
               </span>
               <h3 class="pizarra-header-titulo">A la Práctica Docente</h3>
             </div>
             <ul class="checklist-libreta">
-              <li>Implementar de forma planificada el uso sistemático de material concreto e interactivo en matemáticas para estructurar conceptos.</li>
-              <li>Formular planeamientos curriculares flexibles desde el inicio del curso lectivo, previendo ritmos de aprendizaje diversos.</li>
-              <li>Consolidar rutinas y sistemas de autorregulación del comportamiento por medio del refuerzo positivo constante.</li>
+              <li>Implementar de forma planificada el uso sistemático de material concreto e interactivo en matemáticas
+                para estructurar conceptos.</li>
+              <li>Formular planeamientos curriculares flexibles desde el inicio del curso lectivo, previendo ritmos de
+                aprendizaje diversos.</li>
+              <li>Consolidar rutinas y sistemas de autorregulación del comportamiento por medio del refuerzo positivo
+                constante.</li>
             </ul>
           </div>
 
@@ -2455,11 +2749,12 @@
        ========================================================================== */ -->
   <footer>
     <div class="footer-contenido">
-      
+
       <!-- Logo UCR Simplificado (SVG) -->
       <svg class="footer-logo-ucr" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="45" stroke="var(--dorado-sabana)" stroke-width="2" />
-        <path d="M 30,50 L 50,25 L 70,50 L 50,75 Z" stroke="var(--dorado-sabana)" stroke-width="2" stroke-linejoin="round" />
+        <path d="M 30,50 L 50,25 L 70,50 L 50,75 Z" stroke="var(--dorado-sabana)" stroke-width="2"
+          stroke-linejoin="round" />
         <path d="M 50,25 L 50,75" stroke="var(--dorado-sabana)" stroke-width="1.5" />
         <path d="M 30,50 L 70,50" stroke="var(--dorado-sabana)" stroke-width="1.5" />
         <circle cx="50" cy="50" r="8" fill="var(--dorado-sabana)" />
@@ -2467,13 +2762,14 @@
 
       <span class="footer-universidad">Universidad de Costa Rica</span>
       <span class="footer-facultad">Sede de Guanacaste · Facultad de Educación</span>
-      
+
       <div class="footer-curso-datos">
         Sistematización de Práctica Educativa · ED 0031 · I Semestre, 2026
       </div>
 
       <div class="footer-credito">
-        Bitácora de Campo Digital · Elaborado por <strong>Elí Francisco Chavarría Duarte</strong>. Todos los derechos reservados. &copy; 2026.
+        Bitácora de Campo Digital · Elaborado por <strong>Elí Francisco Chavarría Duarte</strong>. Todos los derechos
+        reservados. &copy; 2026.
       </div>
     </div>
   </footer>
@@ -2483,7 +2779,7 @@
        ========================================================================== */ -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      
+
       /* ---------------------------------------------------------
          1. SISTEMA DE TABS DE SEMANAS
          --------------------------------------------------------- */
@@ -2502,16 +2798,16 @@
           // Activar el seleccionado
           tab.classList.add('active');
           tab.setAttribute('aria-selected', 'true');
-          
+
           const targetId = tab.getAttribute('aria-controls');
           const activePanel = document.getElementById(targetId);
           activePanel.classList.add('active');
 
           // Scroll sutil hacia arriba de la sección de pestañas si está desalineado
-          const yOffset = -120; 
+          const yOffset = -120;
           const element = document.querySelector('.tabs-semanas-nav');
           const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({top: y, behavior: 'smooth'});
+          window.scrollTo({ top: y, behavior: 'smooth' });
         });
       });
 
@@ -2603,7 +2899,7 @@
           // Destacar todos los badges de la misma materia
           const classes = badge.className.split(' ');
           const matchingClass = classes.find(c => c.startsWith('m-') && c !== 'm-rec' && c !== 'm-ext');
-          
+
           if (matchingClass) {
             document.querySelectorAll(`.${matchingClass}`).forEach(b => {
               b.classList.add('highlighted');
@@ -2618,8 +2914,9 @@
           });
         });
       });
-      
+
     });
   </script>
 </body>
+
 </html>
