@@ -297,6 +297,9 @@
     /* ==========================================================================
        1. SECCIÓN PORTADA
        ========================================================================== */
+
+
+
     #portada {
       background-color: var(--verde-bosque);
       display: flex;
@@ -478,6 +481,62 @@
     .guanacaste-ilustration:hover {
       opacity: 1;
       transform: translateY(-5px);
+    }
+
+    /*==================================================
+                LOGO PORTADA
+==================================================*/
+
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      animation: logoEntrada 1.3s ease;
+    }
+
+    .logo-portada {
+      width: 220px;
+      max-width: 80%;
+      height: auto;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .45));
+      transition: all .4s ease;
+    }
+
+    .logo-portada:hover {
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 25px rgba(228, 166, 43, .8));
+    }
+
+    .linea-dorada {
+      width: 250px;
+      height: 3px;
+      margin-top: 20px;
+      border-radius: 50px;
+      background: linear-gradient(90deg,
+          transparent,
+          #E4A62B,
+          #f7d77b,
+          #E4A62B,
+          transparent);
+      box-shadow: 0 0 15px rgba(228, 166, 43, .6);
+    }
+
+    @keyframes logoEntrada {
+      from {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sello-academico {
+      display: none;
     }
 
     /* Scroll Down Arrow */
@@ -1721,8 +1780,17 @@
 
       <div class="portada-contenido">
 
+        <!-- LOGO PRINCIPAL -->
+        <div class="logo-container">
+          <img src="img/logo.png" alt="Logo UCR" class="logo-portada">
+          <div class="linea-dorada"></div>
+        </div>
+
         <!-- Sello Académico Circular UCR -->
         <div class="sello-academico" aria-label="Sello Académico ED 0031 UCR 2026">
+
+
+
           <svg viewBox="0 0 100 100">
             <path id="circlePath" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
             <text>
